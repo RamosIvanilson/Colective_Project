@@ -757,7 +757,7 @@ public class Seller_Page extends javax.swing.JFrame {
             SetBill();
         } else{
             if(add_prod_to_pay.getRowCount() == 0) {
-                
+                JOptionPane.showMessageDialog(null, "Table empty!!");
             } else {
                 JOptionPane.showMessageDialog(null, "Please select a single item to delete!");
             }
