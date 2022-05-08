@@ -21,7 +21,6 @@ import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
-import swing.ImageAvatar;
 
 public class Manage_Seller extends javax.swing.JFrame {
     
@@ -31,14 +30,14 @@ public class Manage_Seller extends javax.swing.JFrame {
         initComponents();
         init();
         editB.setVisible(false);
+        SetShift_start();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -54,21 +53,21 @@ public class Manage_Seller extends javax.swing.JFrame {
         s_photo = new swing.ImageAvatar();
         upload_photo = new supermarket.Button();
         jLabel9 = new javax.swing.JLabel();
-        s_shift_start = new javax.swing.JComboBox<>();
         s_shift_end = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         s_name = new javax.swing.JTextField();
         s_surname = new javax.swing.JTextField();
         s_password = new javax.swing.JTextField();
+        s_shift_start = new javax.swing.JComboBox<>();
+        button1 = new supermarket.Button();
+        button2 = new supermarket.Button();
+        logout = new supermarket.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("X");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -189,10 +188,6 @@ public class Manage_Seller extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(51, 204, 255));
         jLabel9.setText("PASSWORD");
 
-        s_shift_start.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        s_shift_end.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 204, 255));
@@ -202,6 +197,12 @@ public class Manage_Seller extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 204, 255));
         jLabel11.setText("SHIFT END");
+
+        s_shift_start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                s_shift_startActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -234,7 +235,7 @@ public class Manage_Seller extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(s_name)
                                     .addComponent(s_surname, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                                    .addComponent(s_password, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                                    .addComponent(s_password)
                                     .addComponent(s_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(40, 40, 40)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -246,7 +247,7 @@ public class Manage_Seller extends javax.swing.JFrame {
                                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(s_shift_end, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addGap(0, 29, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -268,10 +269,10 @@ public class Manage_Seller extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
+                            .addComponent(s_name, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(s_shift_start, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(s_name, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,28 +304,66 @@ public class Manage_Seller extends javax.swing.JFrame {
                             .addComponent(addB, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(clearB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(9, 9, 9)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        button1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        button1.setForeground(new java.awt.Color(255, 255, 255));
+        button1.setText("Manage Categories");
+        button1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+
+        button2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        button2.setForeground(new java.awt.Color(255, 255, 255));
+        button2.setText("Manage Products");
+        button2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
+
+        logout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        logout.setForeground(new java.awt.Color(255, 255, 255));
+        logout.setText("LOGOUT");
+        logout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -339,9 +378,130 @@ public class Manage_Seller extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(1045, 773));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void SetShift_start() {
+        s_shift_start.addItem("8:00");
+        s_shift_start.addItem("8:30");
+        s_shift_start.addItem("9:00");
+        s_shift_start.addItem("9:30");
+        s_shift_start.addItem("10:00");
+        s_shift_start.addItem("10:30");
+        s_shift_start.addItem("11:00");
+        s_shift_start.addItem("11:30");
+        s_shift_start.addItem("12:00");
+        s_shift_start.addItem("12:30");
+        s_shift_start.addItem("13:00");
+        s_shift_start.addItem("13:30");
+        s_shift_start.addItem("14:00");
+        s_shift_start.addItem("14:30");
+        s_shift_start.addItem("15:00");
+        s_shift_start.addItem("15:30");
+        s_shift_start.addItem("16:00");
+        s_shift_start.addItem("16:30");
+        s_shift_start.addItem("17:00");
+        s_shift_start.addItem("17:30");
+        s_shift_start.addItem("18:00");
+    }
+    
+    private void Set_shift_end() {
+        if(s_shift_start.getSelectedItem().equals("8:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("12:00");
+            s_shift_end.addItem("14:00");
+            s_shift_end.addItem("16:00");
+        } else if(s_shift_start.getSelectedItem().equals("8:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("12:30");
+            s_shift_end.addItem("14:30");
+            s_shift_end.addItem("16:30");
+        } else if(s_shift_start.getSelectedItem().equals("9:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("13:00");
+            s_shift_end.addItem("15:00");
+            s_shift_end.addItem("17:00");
+        } else if(s_shift_start.getSelectedItem().equals("9:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("13:30");
+            s_shift_end.addItem("15:30");
+            s_shift_end.addItem("17:30");
+        } else if(s_shift_start.getSelectedItem().equals("10:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("14:00");
+            s_shift_end.addItem("16:00");
+            s_shift_end.addItem("18:00");
+        } else if(s_shift_start.getSelectedItem().equals("10:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("14:30");
+            s_shift_end.addItem("16:30");
+            s_shift_end.addItem("18:30");
+        } else if(s_shift_start.getSelectedItem().equals("11:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("15:00");
+            s_shift_end.addItem("17:00");
+            s_shift_end.addItem("19:00");
+        } else if(s_shift_start.getSelectedItem().equals("11:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("15:30");
+            s_shift_end.addItem("17:30");
+            s_shift_end.addItem("19:30");
+        } else if(s_shift_start.getSelectedItem().equals("12:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("16:00");
+            s_shift_end.addItem("18:00");
+            s_shift_end.addItem("20:00");
+        } else if(s_shift_start.getSelectedItem().equals("12:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("16:30");
+            s_shift_end.addItem("18:30");
+            s_shift_end.addItem("20:30");
+        } else if(s_shift_start.getSelectedItem().equals("13:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("17:00");
+            s_shift_end.addItem("19:00");
+            s_shift_end.addItem("21:00");
+        } else if(s_shift_start.getSelectedItem().equals("13:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("17:30");
+            s_shift_end.addItem("19:30");
+            s_shift_end.addItem("21:30");
+        } else if(s_shift_start.getSelectedItem().equals("14:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("18:00");
+            s_shift_end.addItem("20:00");
+            s_shift_end.addItem("22:00");
+        } else if(s_shift_start.getSelectedItem().equals("14:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("18:30");
+            s_shift_end.addItem("20:30");
+        } else if(s_shift_start.getSelectedItem().equals("15:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("19:00");
+            s_shift_end.addItem("21:00");
+        } else if(s_shift_start.getSelectedItem().equals("15:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("19:30");
+            s_shift_end.addItem("21:30");
+        } else if(s_shift_start.getSelectedItem().equals("16:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("20:00");
+            s_shift_end.addItem("22:00");
+        } else if(s_shift_start.getSelectedItem().equals("16:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("20:30");
+        } else if(s_shift_start.getSelectedItem().equals("17:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("21:00");
+        } else if(s_shift_start.getSelectedItem().equals("17:30")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("21:30");
+        } else if(s_shift_start.getSelectedItem().equals("18:00")) {
+            s_shift_end.removeAllItems();
+            s_shift_end.addItem("22:00");
+        }
+    }
     
     private void init(){
         try {
@@ -608,6 +768,25 @@ public class Manage_Seller extends javax.swing.JFrame {
     private void upload_photoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upload_photoActionPerformed
         SetImage();
     }//GEN-LAST:event_upload_photoActionPerformed
+
+    private void s_shift_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_shift_startActionPerformed
+        Set_shift_end();
+    }//GEN-LAST:event_s_shift_startActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        this.dispose();
+        new Login().setVisible(true);
+    }//GEN-LAST:event_logoutActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        new Category().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_button1ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        new Products().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_button2ActionPerformed
     
     private class Border extends EmptyBorder {
         
@@ -688,10 +867,11 @@ public class Manage_Seller extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addB;
+    private supermarket.Button button1;
+    private supermarket.Button button2;
     private javax.swing.JButton clearB;
     private javax.swing.JButton delectB;
     private javax.swing.JButton editB;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -702,6 +882,7 @@ public class Manage_Seller extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private supermarket.Button logout;
     private javax.swing.JComboBox<String> s_gender;
     private javax.swing.JTextField s_name;
     private javax.swing.JTextField s_password;
